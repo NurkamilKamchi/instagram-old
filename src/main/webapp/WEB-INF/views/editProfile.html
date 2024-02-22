@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Your CSS styles */
+        /* Общие стили для всех элементов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Стили для тела страницы */
+        body {
+            background-color: #fafafa;
+        }
+
+        /* Стили для основного контейнера */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Стили для страницы */
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 30px;
+        }
+
+        /* Стили для заголовка */
+        .page .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Стили для логотипа */
+        .page .header .logo {
+            margin-bottom: 15px;
+        }
+
+        /* Стили для контейнера формы */
+        .page .container {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        /* Стили для меток полей формы */
+        .page .container label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Стили для ввода данных в форме */
+        .page .container input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #dbdbdb;
+            margin-bottom: 10px;
+        }
+
+        /* Стили для кнопок в форме */
+        .page .container button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #0095f6;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Стили для кнопок при наведении */
+        .page .container button:hover {
+            background-color: #0077b5;
+        }
+
+        /* Медиа запрос для мобильных устройств */
+        @media only screen and (max-width: 400px) {
+            .page {
+                width: 250px;
+            }
+            .page .container {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <div class="page">
+        <div class="header">
+            <h1 class="logo">Instagram</h1>
+        </div>
+        <div class="container">
+            <form th:method="POST" th:action="@{/userInfo/saveUserInfo/{userInfoId}(userInfoId=${foundUserInfo.getId()})}" th:object="${foundUserInfo}">
+                <p>
+                    <label for="fullName">Full name:</label>
+                    <input type="text" th:field="*{fullName}" id="fullName" required="required">
+                </p><p>
+                    <label for="biography">bio:</label>
+                    <input type="text" th:field="*{biography}" id="biography" required="required">
+                </p>
+                <p>
+                    <label for="image">Image:</label>
+                    <input type="text" th:field="*{image}" id="image">
+                </p>
+                <p>
+                    <label for="gender">Gender:</label>
+                    <input type="text" th:field="*{gender}" id="gender">
+                </p>
+                <button type="submit">Save</button>
+            </form>
+            <form th:method="POST" th:action="@{/userInfo/{userInfoId}/delete(userInfoId=${foundUserInfo.getId()})}">
+                <input type="submit" th:value="Delete">
+            </form>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        /* CSS for basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #405DE6;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #5851DB;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #6A5ACD;
+        }
+        section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Instagram</h1>
+</header>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Explore</a>
+    <a href="#">Notifications</a>
+<!--    <a th:href="@{/instagram/login/profile}" role="button" class="btn">Profile</a>-->
+    <a th:href="@{/instagram/profile}">Profile</a>
+
+    <!--        <a th:href="@{/instagram/preLogin}" role="button" class="btn" >Log in</a>
+    -->
+</nav>
+<section>
+    <!-- Your content goes here -->
+    <h2>Welcome to Instagram!</h2>
+    <p>This is a simple example of a webpage with a navigation menu.</p>
+</section>
+</body>
+</html>
